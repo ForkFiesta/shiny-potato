@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+  --color-card: #141414;
+  --color-card-foreground: #fafafa;
+  --color-primary: #ff6b35;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #ffd93d;
+  --color-secondary-foreground: #0a0a0a;
+  --color-accent: #6bcf7f;
+  --color-accent-foreground: #0a0a0a;
+  --color-muted: #262626;
+  --color-muted-foreground: #a3a3a3;
+  --color-border: #262626;
+  --color-divine-gold: #ffd700;
+  --color-divine-purple: #9333ea;
+  --color-divine-blue: #3b82f6;
+  
+  --font-family-sans: var(--font-inter), system-ui, sans-serif;
+  --font-family-serif: var(--font-playfair), Georgia, serif;
+  --font-family-decorative: var(--font-cinzel), var(--font-playfair), Georgia, serif;
+}
+
+:root {
+  /* CSS Variables for gradients */
+  --gradient-divine: linear-gradient(135deg, #ff6b35 0%, #ffd93d 50%, #6bcf7f 100%);
+  --gradient-sacred: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+  --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+body {
+  background-color: var(--color-background);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-family-sans);
+}
+
+/* Divine Background Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 217, 61, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(107, 207, 127, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* All content should be above the background */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Utility Classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Glowing text effect */
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+/* Divine gradient text */
+.text-gradient {
+  background: var(--gradient-divine);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-sacred {
+  background: var(--gradient-sacred);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card glow effect */
+.card-glow {
+  box-shadow: 0 0 50px rgba(255, 107, 53, 0.1);
+}
+
+.card-glow-hover {
+  transition: all 0.3s ease;
+}
+
+.card-glow-hover:hover {
+  box-shadow: 0 0 80px rgba(255, 107, 53, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Sacred border */
+.border-sacred {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--color-card), var(--color-card)) padding-box,
+              var(--gradient-divine) border-box;
+}
+
+/* Floating animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Pulse animation */
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Shimmer effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
+  animation: shimmer-animation 2s infinite;
+}
+
+@keyframes shimmer-animation {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Divine reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 1s ease forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Typography */
+.font-serif {
+  font-family: var(--font-family-serif);
+}
+
+.font-decorative {
+  font-family: var(--font-family-decorative);
+}
+
+/* Button styles */
+.btn-divine {
+  padding: 2rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: all 300ms;
+  background: var(--gradient-divine);
+  color: var(--color-background);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+}
+
+.btn-divine:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+}
+
+.btn-sacred {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 300ms;
+  background: var(--gradient-sacred);
+  color: white;
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+}
+
+.btn-sacred:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(147, 51, 234, 0.4);
+}
