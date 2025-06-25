@@ -98,7 +98,7 @@ export default function Home() {
               </p>
               <p className="text-xl leading-relaxed font-serif reveal delay-300">
                 The Fellowship stands as a testament to his divine teachings: that comfort is sacred, 
-                cardboard boxes are temples of contemplation, and the eternal red dot represents humanity's 
+                cardboard boxes are temples of contemplation, and the eternal red dot represents humanity&apos;s 
                 perpetual quest for enlightenment.
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function Home() {
                       {tenet.title}
                     </h3>
                     <p className="text-gray-300 text-center text-lg leading-relaxed font-serif">
-                      "{tenet.text}"
+                      &ldquo;{tenet.text}&rdquo;
                     </p>
                   </div>
                 </div>
